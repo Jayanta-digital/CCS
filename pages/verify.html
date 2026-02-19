@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Certificate – TechVision Computer Institute</title>
+  <meta name="description" content="Verify the authenticity of TechVision Computer Institute certificates online. Enter your certificate number to check validity instantly.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="announce-bar">🎓 Admissions Open – 2025 Batch | <a href="admission.html">Apply Now →</a></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <div class="logo-icon">💻</div>
+      <div><div class="logo-text">Tech<span>Vision</span></div><span class="logo-sub">Computer Institute</span></div>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="staff.html" class="nav-link">Our Staff</a>
+      <a href="admission.html" class="nav-link">Admission</a>
+      <a href="referral.html" class="nav-link">Referral</a>
+      <a href="verify.html" class="nav-link active">Verify</a>
+      <a href="student-zone.html" class="nav-link">Student Zone</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="admission.html" class="btn btn-accent btn-sm nav-cta">Apply Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Certificate Verification</h1>
+    <p>Verify the authenticity of any TechVision Computer Institute certificate instantly. Enter the certificate number below.</p>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Verify</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width: 760px">
+
+    <!-- Trust Note -->
+    <div class="alert alert-info" style="margin-bottom: 32px">
+      🔒 <strong>Secure Verification System:</strong> This portal verifies certificates issued directly by TechVision Computer Institute. Employers and institutions can use this tool to confirm student credentials.
+    </div>
+
+    <!-- Search Form -->
+    <div class="card" style="padding: 40px; text-align: center; margin-bottom: 32px">
+      <div style="font-size: 3.5rem; margin-bottom: 16px">🔍</div>
+      <h2 style="margin-bottom: 8px">Enter Certificate Number</h2>
+      <p style="color: var(--text-light); margin-bottom: 28px">Certificate numbers follow the format: <code style="background: var(--bg-light); padding: 4px 8px; border-radius: 4px; font-family: var(--font-mono); color: var(--primary)">TVI-YYYY-XXX</code></p>
+
+      <form onsubmit="verifyCertificate(event)" style="max-width: 480px; margin: 0 auto">
+        <div class="form-group">
+          <input 
+            type="text" 
+            id="certNumber" 
+            class="form-control" 
+            placeholder="e.g., TVI-2024-001" 
+            style="text-align: center; font-family: var(--font-mono); font-size: 1.1rem; letter-spacing: 0.04em; text-transform: uppercase"
+            autocomplete="off"
+            maxlength="20"
+          >
+        </div>
+        <button type="submit" id="verifyBtn" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center">
+          🔍 Verify Certificate
+        </button>
+      </form>
+
+      <!-- Loading indicator -->
+      <div id="certLoading" style="display: none; justify-content: center; align-items: center; gap: 12px; margin-top: 20px; color: var(--text-light)">
+        <div style="width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite"></div>
+        Verifying certificate...
+      </div>
+
+      <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+
+      <!-- Sample certificates note -->
+      <details style="margin-top: 24px; text-align: left">
+        <summary style="cursor: pointer; font-size: 0.85rem; color: var(--text-light); text-align: center">Try a sample certificate number</summary>
+        <div style="background: var(--bg-light); border-radius: var(--radius-sm); padding: 14px; margin-top: 10px; font-size: 0.85rem">
+          <p style="margin-bottom: 8px; font-weight: 600; color: var(--text-dark)">Sample valid certificate numbers:</p>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <code onclick="document.getElementById('certNumber').value=this.textContent" style="cursor: pointer; color: var(--primary); font-family: var(--font-mono)">TVI-2024-001</code>
+            <code onclick="document.getElementById('certNumber').value=this.textContent" style="cursor: pointer; color: var(--primary); font-family: var(--font-mono)">TVI-2024-002</code>
+            <code onclick="document.getElementById('certNumber').value=this.textContent" style="cursor: pointer; color: var(--primary); font-family: var(--font-mono)">TVI-2023-045</code>
+          </div>
+          <p style="margin-top: 8px; margin-bottom: 0; font-size: 0.78rem; color: var(--text-light)">(Click to auto-fill)</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- Result Area -->
+    <div id="certResult"></div>
+
+    <!-- Info for employers -->
+    <div class="card mt-32" style="background: var(--bg-light); border: none">
+      <h4 style="font-family: var(--font-body); margin-bottom: 12px">📌 For Employers & Institutions</h4>
+      <p style="font-size: 0.9rem; color: var(--text-body); margin-bottom: 12px">
+        If you need to verify a certificate and the online system shows any discrepancy, or if you need a manual verification letter, please contact us:
+      </p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap">
+        <a href="mailto:verify@techvisioninstitute.in" class="btn btn-outline btn-sm">📧 verify@techvisioninstitute.in</a>
+        <a href="tel:+919876543210" class="btn btn-primary btn-sm">📞 +91 98765 43210</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top: none; padding-top: 24px">
+      <div>© 2025 TechVision Computer Institute. MSME Reg: REG/MSME/UP/2019/12345</div>
+      <div><a href="../index.html">Home</a> | <a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919876543210" class="whatsapp-btn" aria-label="Chat on WhatsApp" target="_blank">💬</a>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/verify.js"></script>
+
+<!--
+  PHP BACKEND INTEGRATION (for production):
+  
+  When deploying with PHP, replace the JS verify function with a PHP backend call:
+  
+  In php/verify.php, add your certificate database/array and handle POST requests.
+  Then call it via fetch:
+  
+  fetch('../php/verify.php', {
+    method: 'POST',
+    body: new URLSearchParams({ cert_number: certNum })
+  }).then(r => r.json()).then(data => { ... });
+  
+  See php/verify.php for the ready-to-use PHP backend.
+-->
+</body>
+</html>

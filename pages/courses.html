@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses – TechVision Computer Institute</title>
+  <meta name="description" content="Explore all computer courses at TechVision: DCA, ADCA, Tally, Web Design, Python, MS Office and more. Government-recognized certifications. Enroll today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="announce-bar">🎓 Admissions Open – 2025 Batch | <a href="admission.html">Apply Now →</a></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <div class="logo-icon">💻</div>
+      <div><div class="logo-text">Tech<span>Vision</span></div><span class="logo-sub">Computer Institute</span></div>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="courses.html" class="nav-link active">Courses</a>
+      <a href="admission.html" class="nav-link">Admission</a>
+      <a href="referral.html" class="nav-link">Referral</a>
+      <a href="verify.html" class="nav-link">Verify</a>
+      <a href="student-zone.html" class="nav-link">Student Zone</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="admission.html" class="btn btn-accent btn-sm nav-cta">Apply Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Our Courses</h1>
+    <p>Choose from 15+ professional computer courses designed for career growth. Every course includes hands-on training, practical projects, and a recognized certificate.</p>
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Courses</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Filter Tabs -->
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; justify-content: center">
+      <button class="btn btn-primary btn-sm" onclick="filterCourses('all', this)">All Courses</button>
+      <button class="btn btn-outline btn-sm" onclick="filterCourses('diploma', this)">Diploma Programs</button>
+      <button class="btn btn-outline btn-sm" onclick="filterCourses('accounting', this)">Accounting</button>
+      <button class="btn btn-outline btn-sm" onclick="filterCourses('design', this)">Design & Web</button>
+      <button class="btn btn-outline btn-sm" onclick="filterCourses('programming', this)">Programming</button>
+      <button class="btn btn-outline btn-sm" onclick="filterCourses('office', this)">Office Tools</button>
+    </div>
+
+    <div class="grid-3" id="courseGrid">
+
+      <!-- DCA -->
+      <div class="course-card reveal" data-category="diploma">
+        <div class="course-card-header">
+          <div class="course-card-icon">🖥️</div>
+          <h3>DCA – Diploma in Computer Applications</h3>
+          <span class="course-duration">⏱ 6 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">10th Pass</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Certification:</span><span class="course-meta-val">Institute Certificate + MSME</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus Includes:</span><span class="course-meta-val">MS Office, Internet, Typing, Basic Accounting</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Batch Timing:</span><span class="course-meta-val">Morning / Evening batches</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Data Entry Operator, Office Assistant, Government Job Applicant, Front Desk Executive</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for DCA →</a>
+        </div>
+      </div>
+
+      <!-- ADCA -->
+      <div class="course-card reveal reveal-delay-1" data-category="diploma">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #1e3a5f 0%, #2d6a4f 100%)">
+          <div class="course-card-icon">📊</div>
+          <h3>ADCA – Advanced Diploma in Computer Applications</h3>
+          <span class="course-duration">⏱ 12 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">12th Pass</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Certification:</span><span class="course-meta-val">Institute Certificate + MSME</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus Includes:</span><span class="course-meta-val">DCA + Tally, Web Design, Programming Basics</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Batch Timing:</span><span class="course-meta-val">Morning / Evening batches</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Accountant, Office Manager, Business Analyst, Computer Operator</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for ADCA →</a>
+        </div>
+      </div>
+
+      <!-- Tally -->
+      <div class="course-card reveal reveal-delay-2" data-category="accounting">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #5c3317 0%, #a0522d 100%)">
+          <div class="course-card-icon">🧮</div>
+          <h3>Tally Prime with GST & Accounting</h3>
+          <span class="course-duration">⏱ 3 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">10th Pass + Basic Computer</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Certification:</span><span class="course-meta-val">Tally Certified + Institute Cert.</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus:</span><span class="course-meta-val">Ledgers, GST, Payroll, Inventory, Reports</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Tally Operator, GST Accountant, Shop Manager, CA Firm Assistant</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for Tally →</a>
+        </div>
+      </div>
+
+      <!-- Web Design -->
+      <div class="course-card reveal" data-category="design">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #1a1a5e 0%, #3b0764 100%)">
+          <div class="course-card-icon">🌐</div>
+          <h3>Web Designing & Development</h3>
+          <span class="course-duration">⏱ 6 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">10th Pass</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus:</span><span class="course-meta-val">HTML, CSS, JavaScript, WordPress, Hosting</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Web Designer, Freelancer, Digital Agency Employee</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for Web Design →</a>
+        </div>
+      </div>
+
+      <!-- Python -->
+      <div class="course-card reveal reveal-delay-1" data-category="programming">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #064e3b 0%, #065f46 100%)">
+          <div class="course-card-icon">🐍</div>
+          <h3>Python Programming – Beginner to Advanced</h3>
+          <span class="course-duration">⏱ 4 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">12th Pass / Graduate</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus:</span><span class="course-meta-val">Python Basics, OOP, File Handling, Projects</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Python Developer, Data Analyst, Automation Engineer</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for Python →</a>
+        </div>
+      </div>
+
+      <!-- MS Office -->
+      <div class="course-card reveal reveal-delay-2" data-category="office">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%)">
+          <div class="course-card-icon">📄</div>
+          <h3>MS Office & Internet Essentials</h3>
+          <span class="course-duration">⏱ 2 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">8th Pass</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus:</span><span class="course-meta-val">Word, Excel, PowerPoint, Email, Internet</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Office Assistant, Data Entry, Govt. Job Preparation</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for MS Office →</a>
+        </div>
+      </div>
+
+      <!-- Photoshop -->
+      <div class="course-card reveal" data-category="design">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%)">
+          <div class="course-card-icon">🎨</div>
+          <h3>Photoshop, CorelDRAW & Graphic Design</h3>
+          <span class="course-duration">⏱ 3 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">10th Pass</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus:</span><span class="course-meta-val">Photoshop, CorelDRAW, Logo & Banner Design</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Graphic Designer, Print Media, Freelancer, Social Media Manager</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for Design →</a>
+        </div>
+      </div>
+
+      <!-- Typing -->
+      <div class="course-card reveal reveal-delay-1" data-category="office">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #4a2c2a 0%, #7b3f3f 100%)">
+          <div class="course-card-icon">⌨️</div>
+          <h3>Hindi & English Typing (Speed Course)</h3>
+          <span class="course-duration">⏱ 2 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">8th Pass</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus:</span><span class="course-meta-val">Hindi (Kruti Dev / Mangal), English Typing, Speed Tests</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Govt. Data Entry, Court Steno, Office Typist</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply for Typing →</a>
+        </div>
+      </div>
+
+      <!-- Digital Marketing -->
+      <div class="course-card reveal reveal-delay-2" data-category="design">
+        <div class="course-card-header" style="background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 100%)">
+          <div class="course-card-icon">📱</div>
+          <h3>Digital Marketing & Social Media</h3>
+          <span class="course-duration">⏱ 3 Months</span>
+        </div>
+        <div class="course-card-body">
+          <div class="course-meta">
+            <div class="course-meta-row"><span class="course-meta-label">Eligibility:</span><span class="course-meta-val">12th Pass</span></div>
+            <div class="course-meta-row"><span class="course-meta-label">Syllabus:</span><span class="course-meta-val">SEO, Google Ads, Facebook Marketing, Content, Analytics</span></div>
+          </div>
+          <div class="course-outcomes"><strong>🎯 Career Outcomes</strong>Digital Marketer, Social Media Manager, SEO Analyst, Freelancer</div>
+          <a href="admission.html" class="btn btn-accent" style="width:100%;justify-content:center">Apply Now →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Fee Note -->
+    <div class="info-box mt-32">
+      💡 <strong>Affordable Fee Structure:</strong> All courses have flexible payment options. Contact us for current fee details, scholarship availability, and EMI options. Fees are subject to change each semester.
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Not Sure Which Course to Choose?</h2>
+    <p>Our counselors will help you pick the perfect course based on your background, goals, and career aspirations. Consultation is FREE.</p>
+    <div class="btn-group" style="justify-content: center">
+      <a href="contact.html" class="btn btn-accent btn-lg">📞 Talk to a Counselor</a>
+      <a href="admission.html" class="btn btn-outline-white btn-lg">Apply Now →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top: none; padding-top: 24px">
+      <div>© 2025 TechVision Computer Institute. All rights reserved.</div>
+      <div><a href="contact.html">Contact</a> | <a href="../index.html">Home</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" id="whatsappBtn" class="whatsapp-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
+
+<script src="../assets/js/main.js"></script>
+<script>
+function filterCourses(cat, btn) {
+  document.querySelectorAll('#courseGrid .course-card').forEach(card => {
+    if (cat === 'all' || card.dataset.category === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.querySelectorAll('[onclick^="filterCourses"]').forEach(b => b.className = 'btn btn-outline btn-sm');
+  btn.className = 'btn btn-primary btn-sm';
+}
+</script>
+</body>
+</html>

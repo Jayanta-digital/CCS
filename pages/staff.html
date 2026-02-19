@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Staff – TechVision Computer Institute</title>
+  <meta name="description" content="Meet the expert faculty and dedicated staff of TechVision Computer Institute. Experienced trainers, skilled educators, and a passionate support team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ── Staff Page Specific Styles ── */
+
+    /* Leadership Card */
+    .leadership-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(26,58,110,0.13);
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 420px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .leadership-card:hover { transform: translateY(-4px); box-shadow: 0 16px 56px rgba(26,58,110,0.18); }
+    .leadership-photo-side {
+      position: relative;
+      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 32px 28px;
+      overflow: hidden;
+    }
+    .leadership-photo-side::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .leadership-photo-side::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 160px; height: 160px;
+      background: rgba(232,160,32,0.1);
+      border-radius: 50%;
+    }
+    .leader-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.3);
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .leader-name-box {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .leader-name-box h3 { color: #fff; font-family: var(--font-body); font-size: 1.3rem; margin-bottom: 4px; }
+    .leader-name-box p { color: rgba(255,255,255,0.75); font-size: 0.85rem; }
+    .leader-socials { display: flex; gap: 10px; margin-top: 14px; justify-content: center; }
+    .leader-social-btn {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: background 0.2s;
+      text-decoration: none;
+    }
+    .leader-social-btn:hover { background: var(--accent); }
+
+    .leadership-content { padding: 44px 44px 44px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .leadership-content .badge { margin-bottom: 10px; }
+    .leadership-content h2 { font-size: 1.6rem; margin-bottom: 6px; }
+    .leadership-content .role-tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: rgba(232,160,32,0.1);
+      border: 1px solid rgba(232,160,32,0.25);
+      border-radius: 40px;
+      padding: 4px 14px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .leadership-message {
+      position: relative;
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      font-style: italic;
+      color: var(--text-body);
+      font-size: 0.97rem;
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .leadership-message::before {
+      content: '"';
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      color: var(--primary);
+      opacity: 0.12;
+      position: absolute;
+      top: -10px; left: 12px;
+      line-height: 1;
+    }
+    .leader-quals { display: flex; gap: 10px; flex-wrap: wrap; }
+    .qual-chip {
+      background: rgba(26,58,110,0.07);
+      color: var(--primary);
+      border: 1px solid rgba(26,58,110,0.15);
+      border-radius: 40px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    /* Faculty Grid Cards */
+    .faculty-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26,58,110,0.09);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .faculty-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(26,58,110,0.15);
+      border-color: transparent;
+    }
+    .faculty-card-top {
+      padding: 32px 24px 24px;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(180deg, var(--bg-light) 0%, #fff 100%);
+    }
+    .faculty-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      position: relative;
+    }
+    .faculty-avatar .exp-badge {
+      position: absolute;
+      bottom: 0; right: 0;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 20px;
+      border: 2px solid #fff;
+      white-space: nowrap;
+    }
+    .faculty-name { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; font-family: var(--font-body); }
+    .faculty-role {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(26,58,110,0.07);
+      border-radius: 40px;
+      padding: 4px 12px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .faculty-qualification { font-size: 0.83rem; color: var(--text-light); }
+    .faculty-card-body { padding: 20px 24px; flex: 1; border-top: 1px solid var(--border); }
+    .faculty-specializations { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .spec-tag {
+      background: var(--bg-light);
+      color: var(--text-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .faculty-bio { font-size: 0.87rem; color: var(--text-light); line-height: 1.65; }
+    .faculty-card-footer {
+      padding: 14px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-light);
+    }
+    .faculty-stat { text-align: center; }
+    .faculty-stat-num { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+    .faculty-stat-label { font-size: 0.68rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Supporting Staff */
+    .support-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .support-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: transparent; }
+    .support-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      margin: 0 auto 14px;
+      border: 3px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .support-name { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; font-family: var(--font-body); }
+    .support-designation {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(26,58,110,0.07);
+      border-radius: 40px;
+      padding: 3px 12px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .support-detail { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
+
+    /* Section divider */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 60px 0 40px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-divider span {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+
+    /* Stats strip */
+    .staff-stats-strip {
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 32px 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .strip-stat-num { font-size: 2.2rem; font-weight: 700; color: var(--accent); font-family: var(--font-heading); }
+    .strip-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .leadership-card { grid-template-columns: 1fr; }
+      .leadership-photo-side { padding: 40px 24px 28px; flex-direction: column; align-items: center; }
+      .leader-avatar { width: 120px; height: 120px; font-size: 3.5rem; }
+      .leadership-content { padding: 28px 24px; }
+      .staff-stats-strip { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .leadership-content h2 { font-size: 1.3rem; }
+      .staff-stats-strip { grid-template-columns: 1fr 1fr; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announce-bar">🎓 Admissions Open – 2025 Batch &nbsp;|&nbsp; <a href="admission.html">Apply Now →</a></div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">
+      <div class="logo-icon">💻</div>
+      <div>
+        <div class="logo-text">Tech<span>Vision</span></div>
+        <span class="logo-sub">Computer Institute</span>
+      </div>
+    </a>
+    <nav class="nav-menu" id="navMenu" role="navigation">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="staff.html" class="nav-link active">Our Staff</a>
+      <a href="admission.html" class="nav-link">Admission</a>
+      <a href="referral.html" class="nav-link">Referral</a>
+      <a href="verify.html" class="nav-link">Verify</a>
+      <a href="student-zone.html" class="nav-link">Student Zone</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="admission.html" class="btn btn-accent btn-sm nav-cta">Apply Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero" style="background: linear-gradient(135deg, #0f2449 0%, #1a3a6e 60%, #2756a8 100%)">
+  <div class="container">
+    <div style="font-size:3rem;margin-bottom:12px">👨‍🏫</div>
+    <h1>Meet Our Team</h1>
+    <p>The dedicated educators and support staff who make TechVision a centre of excellence. Every student's success is our shared mission.</p>
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>/</span><span>Our Staff</span>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="section">
+  <div class="container">
+
+    <!-- Staff Stats Strip -->
+    <div class="staff-stats-strip reveal">
+      <div>
+        <div class="strip-stat-num">12+</div>
+        <div class="strip-stat-label">Expert Faculty Members</div>
+      </div>
+      <div>
+        <div class="strip-stat-num">80+</div>
+        <div class="strip-stat-label">Combined Years Experience</div>
+      </div>
+      <div>
+        <div class="strip-stat-num">5000+</div>
+        <div class="strip-stat-label">Students Trained</div>
+      </div>
+      <div>
+        <div class="strip-stat-num">95%</div>
+        <div class="strip-stat-label">Placement Success Rate</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         LEADERSHIP — DIRECTOR / CEO
+    ══════════════════════════════════ -->
+    <div class="text-center mb-32">
+      <span class="badge">Leadership</span>
+      <h2 class="section-title mt-8">Our Director</h2>
+      <p class="section-sub" style="margin:0 auto">Visionary leadership that has shaped TechVision into the region's most trusted computer institute.</p>
+    </div>
+
+    <div class="leadership-card reveal" style="margin-bottom:32px">
+      <div class="leadership-photo-side">
+        <div class="leader-avatar">👨‍💼</div>
+        <div class="leader-name-box">
+          <h3>Rajesh Kumar Sharma</h3>
+          <p>Director & Principal</p>
+          <div class="leader-socials">
+            <a href="mailto:director@techvisioninstitute.in" class="leader-social-btn" title="Email">📧</a>
+            <a href="https://wa.me/919876543210" class="leader-social-btn" title="WhatsApp" target="_blank">💬</a>
+            <a href="#" class="leader-social-btn" title="LinkedIn">🔗</a>
+          </div>
+        </div>
+      </div>
+      <div class="leadership-content">
+        <span class="badge">Director & Founder</span>
+        <h2>Rajesh Kumar Sharma</h2>
+        <span class="role-tag">✦ Founder · Director · Principal</span>
+        <div class="leadership-message">
+          I founded TechVision in 2019 with a simple but powerful belief — that every student in our region, regardless of their background, deserves world-class computer education. Six years later, with over 5,000 trained students and hundreds placed in meaningful careers, that belief has only grown stronger. We are not just an institute; we are a launchpad for futures. Every course we design, every faculty member we hire, and every facility we build is in service of one goal: your success.
+        </div>
+        <div class="leader-quals">
+          <span class="qual-chip">M.Tech – Computer Science</span>
+          <span class="qual-chip">B.Tech – IT, AKTU</span>
+          <span class="qual-chip">15+ Years Experience</span>
+          <span class="qual-chip">MSME Certified Trainer</span>
+          <span class="qual-chip">ISO Lead Auditor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vice Principal -->
+    <div class="leadership-card reveal" style="margin-bottom:60px; background: linear-gradient(135deg, #fffbeb 0%, #fff 100%);">
+      <div class="leadership-photo-side" style="background: linear-gradient(160deg, #78350f 0%, #d97706 100%)">
+        <div class="leader-avatar">👩‍💼</div>
+        <div class="leader-name-box">
+          <h3>Sunita Devi Pandey</h3>
+          <p>Vice Principal & Academic Head</p>
+          <div class="leader-socials">
+            <a href="mailto:academic@techvisioninstitute.in" class="leader-social-btn">📧</a>
+            <a href="#" class="leader-social-btn">💬</a>
+          </div>
+        </div>
+      </div>
+      <div class="leadership-content">
+        <span class="badge badge-accent">Academic Leadership</span>
+        <h2>Sunita Devi Pandey</h2>
+        <span class="role-tag" style="background:rgba(217,119,6,0.1);color:#92400e;border-color:rgba(217,119,6,0.25)">✦ Vice Principal · Academic Head</span>
+        <div class="leadership-message">
+          Education is not just about teaching — it's about nurturing confidence, curiosity, and character. As Academic Head, I ensure that every course at TechVision meets the highest standards of quality and relevance. I personally review our curriculum every semester to keep pace with industry changes. My commitment to our students goes beyond the classroom: I want each of them to leave TechVision not just with a certificate, but with the confidence to take on the world.
+        </div>
+        <div class="leader-quals">
+          <span class="qual-chip">M.Sc – Computer Science</span>
+          <span class="qual-chip">B.Ed – Education</span>
+          <span class="qual-chip">12+ Years in Education</span>
+          <span class="qual-chip">Curriculum Design Expert</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         TEACHING FACULTY
+    ══════════════════════════════════ -->
+    <div class="section-divider reveal">
+      <span>👨‍🏫 Teaching Faculty</span>
+    </div>
+
+    <div class="text-center mb-32">
+      <span class="badge">Expert Educators</span>
+      <h2 class="section-title mt-8">Our Faculty Team</h2>
+      <p class="section-sub" style="margin:0 auto">Practitioners first, teachers always. Every faculty member brings real industry experience into the classroom.</p>
+    </div>
+
+    <div class="grid-3" style="gap:28px">
+
+      <!-- Faculty 1 -->
+      <div class="faculty-card reveal">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#1a3a6e,#2756a8)">
+            👨‍💻
+            <span class="exp-badge">10 Yrs</span>
+          </div>
+          <div class="faculty-name">Amit Kumar Singh</div>
+          <div class="faculty-role">Lead Trainer – Programming</div>
+          <div class="faculty-qualification">MCA | NIIT Certified Developer</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-specializations">
+            <span class="spec-tag">Python</span>
+            <span class="spec-tag">Web Dev</span>
+            <span class="spec-tag">JavaScript</span>
+            <span class="spec-tag">Database</span>
+            <span class="spec-tag">Linux</span>
+          </div>
+          <p class="faculty-bio">10+ years in software development with experience at IT firms in Lucknow and Noida. Brought industry-grade coding practices into the classroom. Expert at breaking down complex concepts for beginners.</p>
+        </div>
+        <div class="faculty-card-footer">
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">800+</div>
+            <div class="faculty-stat-label">Students</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">10</div>
+            <div class="faculty-stat-label">Years Exp.</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">4</div>
+            <div class="faculty-stat-label">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 2 -->
+      <div class="faculty-card reveal reveal-delay-1">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#2d6a4f,#40916c)">
+            👩‍🏫
+            <span class="exp-badge">8 Yrs</span>
+          </div>
+          <div class="faculty-name">Priya Mishra</div>
+          <div class="faculty-role">Senior Trainer – Accounting</div>
+          <div class="faculty-qualification">B.Com (Hons), CA Inter | Tally Certified</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-specializations">
+            <span class="spec-tag">Tally Prime</span>
+            <span class="spec-tag">GST</span>
+            <span class="spec-tag">Accounting</span>
+            <span class="spec-tag">Payroll</span>
+            <span class="spec-tag">Auditing</span>
+          </div>
+          <p class="faculty-bio">8 years training experience with over 500 students placed in accounting roles. Cleared CA Inter and has hands-on accounting experience with mid-size businesses. Students consistently rate her clarity and patience as exceptional.</p>
+        </div>
+        <div class="faculty-card-footer">
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">500+</div>
+            <div class="faculty-stat-label">Students</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">8</div>
+            <div class="faculty-stat-label">Years Exp.</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">3</div>
+            <div class="faculty-stat-label">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 3 -->
+      <div class="faculty-card reveal reveal-delay-2">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#5c3317,#a0522d)">
+            🧑‍🎨
+            <span class="exp-badge">7 Yrs</span>
+          </div>
+          <div class="faculty-name">Vikash Pandey</div>
+          <div class="faculty-role">Trainer – Design & Web</div>
+          <div class="faculty-qualification">BFA | GNIIT | Adobe Certified</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-specializations">
+            <span class="spec-tag">Photoshop</span>
+            <span class="spec-tag">CorelDRAW</span>
+            <span class="spec-tag">Web Design</span>
+            <span class="spec-tag">WordPress</span>
+            <span class="spec-tag">UI/UX</span>
+          </div>
+          <p class="faculty-bio">Freelance graphic designer with 7 years of professional projects for clients across UP and Delhi. Runs a successful design studio alongside teaching. Brings live client projects into sessions for real-world practice.</p>
+        </div>
+        <div class="faculty-card-footer">
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">400+</div>
+            <div class="faculty-stat-label">Students</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">7</div>
+            <div class="faculty-stat-label">Years Exp.</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">3</div>
+            <div class="faculty-stat-label">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 4 -->
+      <div class="faculty-card reveal">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#1e3a5f,#3b0764)">
+            👩‍💻
+            <span class="exp-badge">6 Yrs</span>
+          </div>
+          <div class="faculty-name">Kavya Shukla</div>
+          <div class="faculty-role">Trainer – MS Office & DCA</div>
+          <div class="faculty-qualification">MCA | Microsoft Office Specialist</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-specializations">
+            <span class="spec-tag">MS Word</span>
+            <span class="spec-tag">MS Excel</span>
+            <span class="spec-tag">PowerPoint</span>
+            <span class="spec-tag">Internet</span>
+            <span class="spec-tag">Typing</span>
+          </div>
+          <p class="faculty-bio">Microsoft Office Specialist certified with 6 years of training experience. Specialises in making complete beginners comfortable with computers. Known for her step-by-step practical methodology and endless patience.</p>
+        </div>
+        <div class="faculty-card-footer">
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">700+</div>
+            <div class="faculty-stat-label">Students</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">6</div>
+            <div class="faculty-stat-label">Years Exp.</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">2</div>
+            <div class="faculty-stat-label">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 5 -->
+      <div class="faculty-card reveal reveal-delay-1">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#064e3b,#065f46)">
+            👨‍🔬
+            <span class="exp-badge">5 Yrs</span>
+          </div>
+          <div class="faculty-name">Rahul Tiwari</div>
+          <div class="faculty-role">Trainer – Python & Data</div>
+          <div class="faculty-qualification">B.Tech (CS) | Python Institute Certified</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-specializations">
+            <span class="spec-tag">Python</span>
+            <span class="spec-tag">Data Analysis</span>
+            <span class="spec-tag">NumPy/Pandas</span>
+            <span class="spec-tag">Automation</span>
+          </div>
+          <p class="faculty-bio">Former software developer turned passionate educator. 5 years training experience with a focus on making Python programming accessible to non-technical backgrounds. Has mentored students into data analyst roles at MNCs.</p>
+        </div>
+        <div class="faculty-card-footer">
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">300+</div>
+            <div class="faculty-stat-label">Students</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">5</div>
+            <div class="faculty-stat-label">Years Exp.</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">2</div>
+            <div class="faculty-stat-label">Courses</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculty 6 -->
+      <div class="faculty-card reveal reveal-delay-2">
+        <div class="faculty-card-top">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#7f1d1d,#b91c1c)">
+            👩‍🏫
+            <span class="exp-badge">4 Yrs</span>
+          </div>
+          <div class="faculty-name">Ananya Verma</div>
+          <div class="faculty-role">Trainer – Digital Marketing</div>
+          <div class="faculty-qualification">MBA – Marketing | Google Ads Certified</div>
+        </div>
+        <div class="faculty-card-body">
+          <div class="faculty-specializations">
+            <span class="spec-tag">SEO</span>
+            <span class="spec-tag">Google Ads</span>
+            <span class="spec-tag">Facebook Ads</span>
+            <span class="spec-tag">Content</span>
+            <span class="spec-tag">Analytics</span>
+          </div>
+          <p class="faculty-bio">MBA graduate with hands-on digital marketing experience managing campaigns for SMEs. Google Ads and HubSpot certified. Runs live ad campaigns in class so students see real results in real time.</p>
+        </div>
+        <div class="faculty-card-footer">
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">200+</div>
+            <div class="faculty-stat-label">Students</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">4</div>
+            <div class="faculty-stat-label">Years Exp.</div>
+          </div>
+          <div class="faculty-stat">
+            <div class="faculty-stat-num">1</div>
+            <div class="faculty-stat-label">Courses</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid-3 faculty -->
+
+
+    <!-- ══════════════════════════════════
+         SUPPORTING STAFF
+    ══════════════════════════════════ -->
+    <div class="section-divider reveal">
+      <span>🤝 Supporting Staff</span>
+    </div>
+
+    <div class="text-center mb-32">
+      <span class="badge badge-accent">Behind the Scenes</span>
+      <h2 class="section-title mt-8">Our Dedicated Support Team</h2>
+      <p class="section-sub" style="margin:0 auto">Every great institute runs on the invisible efforts of a dedicated support team. Meet the people who keep TechVision running smoothly every day.</p>
+    </div>
+
+    <div class="grid-4" style="gap:22px">
+
+      <div class="support-card reveal">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">👩‍💼</div>
+        <div class="support-name">Reena Gupta</div>
+        <div class="support-designation">Admissions Coordinator</div>
+        <div class="support-detail">Handles all enquiries, admissions, and student onboarding. First face students see. 4 years with TechVision.</div>
+      </div>
+
+      <div class="support-card reveal reveal-delay-1">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)">👨‍💻</div>
+        <div class="support-name">Manish Dubey</div>
+        <div class="support-designation">Lab Technician & IT Support</div>
+        <div class="support-detail">Maintains all 50+ computers, network, and software. Ensures zero downtime in the lab. B.Sc IT graduate.</div>
+      </div>
+
+      <div class="support-card reveal reveal-delay-2">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">👩‍🏫</div>
+        <div class="support-name">Pooja Yadav</div>
+        <div class="support-designation">Student Counsellor</div>
+        <div class="support-detail">Guides students with course selection, career planning, and personal support. Certified career counsellor.</div>
+      </div>
+
+      <div class="support-card reveal reveal-delay-3">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">📊</div>
+        <div class="support-name">Sanjay Maurya</div>
+        <div class="support-designation">Accounts & Fee Manager</div>
+        <div class="support-detail">Manages all financial records, fee collection, and student receipts. B.Com + Tally certified. 5 years experience.</div>
+      </div>
+
+      <div class="support-card reveal">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">📋</div>
+        <div class="support-name">Anita Singh</div>
+        <div class="support-designation">Office Administrator</div>
+        <div class="support-detail">Manages day-to-day administration, records, certificates, and official documentation. DCA & ADCA qualified.</div>
+      </div>
+
+      <div class="support-card reveal reveal-delay-1">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#fef9c3,#fef08a)">🔒</div>
+        <div class="support-name">Ram Prasad Bind</div>
+        <div class="support-designation">Security & Infrastructure</div>
+        <div class="support-detail">Manages institute security, CCTV monitoring, and premise safety. Present 6 days a week without fail.</div>
+      </div>
+
+      <div class="support-card reveal reveal-delay-2">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)">🤝</div>
+        <div class="support-name">Deepak Kumar</div>
+        <div class="support-designation">Placement Coordinator</div>
+        <div class="support-detail">Manages employer relationships, job fairs, and student placement. Has placed 500+ students in 3 years.</div>
+      </div>
+
+      <div class="support-card reveal reveal-delay-3">
+        <div class="support-avatar" style="background:linear-gradient(135deg,#fff7ed,#fed7aa)">🧹</div>
+        <div class="support-name">Chameli Devi</div>
+        <div class="support-designation">Housekeeping & Cleanliness</div>
+        <div class="support-detail">Keeps the institute spotlessly clean and welcoming. 6 years of dedicated service. The backbone of our environment.</div>
+      </div>
+
+    </div><!-- /grid-4 support -->
+
+    <!-- Join Team CTA -->
+    <div class="card mt-48 text-center reveal" style="background: linear-gradient(135deg,var(--bg-light),#fff); border: 2px dashed var(--border); padding: 48px">
+      <div style="font-size:3rem;margin-bottom:14px">💼</div>
+      <h3 style="font-family:var(--font-body);margin-bottom:10px">Want to Join Our Team?</h3>
+      <p style="color:var(--text-light);max-width:500px;margin:0 auto 24px">We're always looking for passionate educators and dedicated support staff. If you share our mission of empowering students through technology education, we'd love to hear from you.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">📧 Send Your Application</a>
+    </div>
+
+  </div>
+</section><!-- /section -->
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon">💻</div>
+          <div><div class="logo-text">Tech<span>Vision</span></div><span class="logo-sub">Computer Institute</span></div>
+        </a>
+        <p style="margin-top:16px">Empowering students with professional computer education since 2019. MSME-registered, ISO-certified, placement-focused.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">▶️</a>
+          <a href="#" class="social-link">💬</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About Institute</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+          <li><a href="staff.html">Our Staff</a></li>
+          <li><a href="admission.html">Apply for Admission</a></li>
+          <li><a href="referral.html">Referral Program</a></li>
+          <li><a href="verify.html">Verify Certificate</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Courses</h4>
+        <ul class="footer-links">
+          <li><a href="courses.html">DCA (6 Months)</a></li>
+          <li><a href="courses.html">ADCA (12 Months)</a></li>
+          <li><a href="courses.html">Tally Prime + GST</a></li>
+          <li><a href="courses.html">Web Designing</a></li>
+          <li><a href="courses.html">Python Programming</a></li>
+          <li><a href="courses.html">MS Office</a></li>
+          <li><a href="courses.html">Digital Marketing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact-item"><span class="icon">📍</span><span>123, Main Market Road, Near Civil Hospital, Gorakhpur, UP – 273001</span></div>
+        <div class="footer-contact-item"><span class="icon">📞</span><span><a href="tel:+919876543210" style="color:var(--accent)">+91 98765 43210</a></span></div>
+        <div class="footer-contact-item"><span class="icon">📧</span><span><a href="mailto:info@techvisioninstitute.in" style="color:var(--accent)">info@techvisioninstitute.in</a></span></div>
+        <div class="footer-contact-item"><span class="icon">🕐</span><span>Mon–Sat: 9:00 AM – 6:00 PM</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 TechVision Computer Institute. All rights reserved. | MSME Reg: REG/MSME/UP/2019/12345</div>
+      <div><a href="#">Privacy Policy</a> | <a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919876543210" id="whatsappBtn" class="whatsapp-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  💬
+  <span class="whatsapp-tooltip">Chat with us</span>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
